@@ -24,31 +24,16 @@
 package main
 
 func main() {
-	println(searchInsert([]int{1, 3}, 3))
+	println(searchInsert([]int{1, 3}, 2))
 }
 
 func searchInsert(nums []int, target int) int {
-	if len(nums) == 0 {
-		return 0
-	}
-	if target <= nums[0] {
-		return 0
-	}
-	if target > nums[len(nums)-1] {
-		return len(nums)
-	}
 	left := 0
 	right := len(nums)
 	for left < right {
 		mid := left + (right-left)/2
 		if nums[mid] == target {
 			return mid
-		} else if left == mid {
-			if target < nums[left] {
-				return left
-			} else {
-				return right
-			}
 		} else if nums[mid] < target {
 			left = mid + 1
 		} else {
