@@ -66,12 +66,6 @@ func deleteNode(node *ListNode) {
 	if node == nil || node.Next == nil {
 		return
 	}
-	for {
-		node.Val = node.Next.Val
-		if node.Next.Next == nil {
-			node.Next = nil
-			return
-		}
-		node = node.Next
-	}
+	node.Val = node.Next.Val
+	node.Next = node.Next.Next
 }
